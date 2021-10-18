@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol EndPointString {
+public protocol EndPointString {
 	var baseUrlString: String { get }
 }
 
@@ -16,7 +16,7 @@ public enum EndPoint: String {
 }
 
 extension EndPoint: EndPointString {
-	var baseUrlString: String {
+	public var baseUrlString: String {
 		return "https://e4e8b799-096f-418c-956d-b73965ddb835.mock.pstmn.io/"
 	}
 }

@@ -8,12 +8,12 @@
 import Foundation
 import OSLog
 
-protocol Session {
+public protocol Session {
 	func fetch<T: Decodable>(_ endpoint: EndPoint, completion: @escaping (Result<T, Error>) -> Void)
 }
 
 extension URLSession: Session {
-	func fetch<T>(_ endpoint: EndPoint, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
+	public func fetch<T>(_ endpoint: EndPoint, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
 		
 		let request = URLRequest(endpoint: endpoint)
 		Self.shared.dataTask(with: request) { data, response, error in

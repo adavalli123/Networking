@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Repository {
+public protocol Repository {
 	associatedtype RepositoryType
 	func fetch(_ endpoint: EndPoint, completion: @escaping (Result<RepositoryType, Error>) -> Void)
 }
