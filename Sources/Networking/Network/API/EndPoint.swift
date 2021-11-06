@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol EndPoint {
-	var path: String { get set }
+	var path: String { get }
 }
