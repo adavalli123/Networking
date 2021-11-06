@@ -12,6 +12,7 @@ public protocol Session {
 	func fetch<T: Decodable>(_ endpoint: EndPoint, completion: @escaping (Result<T, Error>) -> Void)
 }
 
+@available(macOS 11.0, *)
 extension URLSession: Session {
 	public func fetch<T>(_ endpoint: EndPoint, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
 		
@@ -40,6 +41,7 @@ extension URLSession: Session {
 	}
 }
 
+@available(macOS 11.0, *)
 extension Logger {
 	static var log: Logger {
 		return Logger(

@@ -17,6 +17,7 @@ public protocol Request {
 	)
 }
 
+@available(macOS 11.0, *)
 extension URLRequest: Request {
 	public init(
 		endpoint: EndPoint,
@@ -24,7 +25,7 @@ extension URLRequest: Request {
 		cachePolicy: URLRequest.CachePolicy = .useProtocolCachePolicy,
 		timeoutInterval: TimeInterval = .infinity
 	) {
-		guard let url = URL(string: endpoint.baseUrlString + endpoint.rawValue) else {
+		guard let url = URL(string: endpoint.path) else {
 			Logger.log.error("URL Error - Un-available to get the valid URL")
 			preconditionFailure("Invalid URL used to create URL instance")
 		}
